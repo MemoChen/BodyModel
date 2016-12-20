@@ -10,7 +10,11 @@ public class CreateBody : MonoBehaviour
     {
         InitHead();
         InitNeck();
-        InitBody();
+        for(int i=0;i<5;i++)
+        {
+            InitBody();
+        }
+      
     }
     private void InitHead()
     {
@@ -85,25 +89,27 @@ public class CreateBody : MonoBehaviour
     private void InitBody()
     {
         GameObject cubeNeck;
+        GameObject[] temp = null;
         for (int i = 0; i < 80; i++)
         {
             cubeNeck = Instantiate(Resources.Load("Prefab/Body"), bodyParent[2].transform) as GameObject;
+            temp = GameObject.FindGameObjectsWithTag("body");
         }
         for (int j = 0; j < 80; j++)
         {
             if (j < 7)
             {
-                GameObject[] temp = GameObject.FindGameObjectsWithTag("body");
+                //temp = GameObject.FindGameObjectsWithTag("body");
                 temp[j].transform.position = new Vector3((j / 10f) - 0.2f, -0.325f, 0);
             }
             else if (j < 14)
             {
-                GameObject[] temp = GameObject.FindGameObjectsWithTag("body");
+                //GameObject[] temp = GameObject.FindGameObjectsWithTag("body");
                 temp[j].transform.position = new Vector3(((j - 7) / 10f) - 0.2f, -0.325f, 0.1f);
             }
             else if (j < 21)
             {
-                GameObject[] temp = GameObject.FindGameObjectsWithTag("body");
+                //GameObject[] temp = GameObject.FindGameObjectsWithTag("body");
                 temp[j].transform.position = new Vector3(((j - 14) / 10f) - 0.2f, -0.325f, 0.2f);
             }
         }
